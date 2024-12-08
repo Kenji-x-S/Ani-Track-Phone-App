@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "196794513206",
+    "project_id": "ani-track",
+    "storage_bucket": "ani-track.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196794513206:android:6b98ac828e5c65ea38a597",
+        "android_client_info": {
+          "package_name": "com.example.ani_track"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj38PdBc4W4swIAf5Mzuvqk08Y607W8zY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

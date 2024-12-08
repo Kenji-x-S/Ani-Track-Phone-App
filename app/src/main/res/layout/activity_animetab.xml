@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Navigation Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@drawable/navigation_bar_background"
+        android:gravity="center">
+
+        <!-- Anime Tab (Highlighted) -->
+        <TextView
+            android:id="@+id/tabAnime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anime"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:background="@drawable/tab_highlight" />
+
+        <!-- Other Tabs (People, Watchlist, etc.) -->
+        <TextView
+            android:id="@+id/tabPeople"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="People"
+            android:textColor="#BDBDBD"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tabWatchlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Watchlist"
+            android:textColor="#BDBDBD"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Search Bar -->
+    <EditText
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search Anime"
+        android:inputType="text"
+        android:padding="12dp"
+        android:background="@drawable/rounded_edittext_with_border"
+        android:layout_margin="20dp" />
+
+    <!-- RecyclerView for Anime List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAnime"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>
