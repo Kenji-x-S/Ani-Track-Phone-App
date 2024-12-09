@@ -1,6 +1,7 @@
 package com.example.ani_track;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
 
         // Initialize Firebase Realtime Database
         databaseReference = FirebaseDatabase.getInstance().getReference("people");

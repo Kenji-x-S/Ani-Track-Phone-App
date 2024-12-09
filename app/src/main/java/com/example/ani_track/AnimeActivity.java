@@ -1,6 +1,7 @@
 package com.example.ani_track;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
@@ -33,14 +34,13 @@ public class AnimeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AnimeAdapter animeAdapter;
     private List<Anime> animeList;
-    private DatabaseReference databaseReference;
     private TextView tabPeople, tabWatchlist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animetab);
-
+        getWindow().setStatusBarColor(Color.parseColor("#333333"));
         // Initializing UI components
         searchAnime = findViewById(R.id.searchBar);
         recyclerView = findViewById(R.id.recyclerViewAnime);
@@ -56,9 +56,6 @@ public class AnimeActivity extends AppCompatActivity {
 
         // Firebase reference (if needed for future use)
         String username = getIntent().getStringExtra("username");
-        if (username != null) {
-            databaseReference = FirebaseDatabase.getInstance().getReference("people").child(username).child("watchlist").child("watching");
-        }
 
         // Fetch all anime data initially
         fetchAnimeData("");
@@ -85,12 +82,16 @@ public class AnimeActivity extends AppCompatActivity {
 
         tabPeople.setOnClickListener(view -> {
             Intent intent = new Intent(AnimeActivity.this, PeopleActivity.class);
+            // Pass the username via Intent
+            intent.putExtra("username", username);
             startActivity(intent);  // Start PeopleActivity
         });
 
-        // Set click listener for tabWatchlist TextView
+// Set click listener for tabWatchlist TextView
         tabWatchlist.setOnClickListener(view -> {
             Intent intent = new Intent(AnimeActivity.this, WatchlistActivity.class);
+            // Pass the username via Intent
+            intent.putExtra("username", username);
             startActivity(intent);  // Start WatchlistActivity
         });
     }
@@ -135,9 +136,9 @@ public class AnimeActivity extends AppCompatActivity {
                             JSONObject jpgImage = images.getJSONObject("jpg");
                             String imageUrl = jpgImage.getString("image_url");
                             int animeId = anime.getInt("mal_id");
-
+                            String status="Watching";
                             // Create Anime object and add it to the list
-                            Anime animeItem = new Anime(title, description, imageUrl, animeId);
+                            Anime animeItem = new Anime(title, description, imageUrl, animeId, status);
                             animeList.add(animeItem);
                         }
 

@@ -27,6 +27,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".PeopleActivity" />
         <activity android:name=".WatchlistActivity" />
+        <activity android:name=".UserProfileActivity" />
     </application>
 
 </manifest>

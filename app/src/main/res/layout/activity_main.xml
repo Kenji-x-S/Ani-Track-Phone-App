@@ -50,14 +50,6 @@
         android:textStyle="bold" />
 
     <!-- Forgot Password -->
-    <TextView
-        android:id="@+id/tvForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textColor="#BDBDBD"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp" />
 
     <!-- Sign Up -->
     <TextView

@@ -25,22 +25,6 @@
             android:textSize="18sp"
             android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/animeDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Anime description"
-            android:textSize="14sp"
-            android:layout_marginTop="4dp" />
-
-        <!-- Rating for Anime -->
-        <TextView
-            android:id="@+id/animeRating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Rating: 8/10"
-            android:textSize="14sp"
-            android:layout_marginTop="4dp" />
 
         <!-- Status of Anime (Watched, Dropped, Plan to Watch, Watching) -->
         <TextView

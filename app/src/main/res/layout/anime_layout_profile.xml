@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp"
-    android:background="@drawable/ic_launcher_background"
     android:layout_marginBottom="10dp">
 
     <!-- Anime Image -->
@@ -35,13 +34,13 @@
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/animeDescription"
+            android:id="@+id/animeStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Anime Description"
-            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:text="Status:"
             android:textColor="@android:color/darker_gray"
-            android:layout_marginTop="4dp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
 </LinearLayout>

@@ -6,12 +6,17 @@ public class Anime {
     private String description;
     private String imageUrl;
     private int animeId;
+    private String status;
 
-    public Anime(String title, String description, String imageUrl, int animeId) {
+    public Anime() {
+    }
+
+    public Anime(String title, String description, String imageUrl, int animeId, String status) {
         this.title = title;
         this.description = description;
         this.imageUrl = imageUrl;
         this.animeId = animeId;
+        this.status = status;
     }
 
     public int getAnimeId() {
@@ -41,4 +46,12 @@ public class Anime {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
+

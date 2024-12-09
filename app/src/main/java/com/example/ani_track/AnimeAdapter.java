@@ -1,7 +1,6 @@
 package com.example.ani_track;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +30,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.AnimeViewHol
         this.context = context;
         String username = ((AnimeActivity) context).getIntent().getStringExtra("username");
         if (username != null) {
-            databaseReference = FirebaseDatabase.getInstance().getReference("people").child(username).child("watchlist").child("watching");
+            databaseReference = FirebaseDatabase.getInstance().getReference("people").child(username).child("watchlist");
         }
     }
 
@@ -90,7 +89,7 @@ public class AnimeAdapter extends RecyclerView.Adapter<AnimeAdapter.AnimeViewHol
         public AnimeViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.animeTitle);
-            descriptionTextView = itemView.findViewById(R.id.animeDescription);
+            descriptionTextView = itemView.findViewById(R.id.animeStatus);
             animeImageView = itemView.findViewById(R.id.animeImage);
             addToWatchlistButton = itemView.findViewById(R.id.addToWatchlistButton);
             alreadyInWatchlistText = itemView.findViewById(R.id.watchlistStatusText);

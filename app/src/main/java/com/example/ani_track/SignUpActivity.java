@@ -1,6 +1,7 @@
 package com.example.ani_track;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -30,6 +31,8 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
+
 
         // Initialize Firebase Database
         databaseReference = FirebaseDatabase.getInstance().getReference("people");
