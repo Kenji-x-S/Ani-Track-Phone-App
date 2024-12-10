@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="10dp"
+    android:background="@drawable/navigation_bar_background"
     android:layout_marginBottom="10dp">
 
     <!-- Profile Image -->

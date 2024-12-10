@@ -4,47 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Navigation Bar -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:background="@drawable/navigation_bar_background"
-        android:gravity="center">
+    <include layout="@layout/navigation_bar" />
 
-        <!-- Anime Tab (Normal) -->
-        <TextView
-            android:id="@+id/tabAnime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Anime"
-            android:textColor="#BDBDBD"
-            android:textSize="18sp"
-            android:padding="10dp" />
-
-        <!-- People Tab -->
-        <TextView
-            android:id="@+id/tabPeople"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="People"
-            android:textColor="#BDBDBD"
-            android:textSize="18sp"
-            android:padding="10dp" />
-
-        <!-- Watchlist Tab (Highlighted) -->
-        <TextView
-            android:id="@+id/tabWatchlist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Watchlist"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:padding="10dp"
-            android:background="@drawable/tab_highlight" />
-    </LinearLayout>
-
-    <!-- Search Bar -->
     <EditText
         android:id="@+id/searchBar"
         android:layout_width="match_parent"
@@ -55,7 +16,6 @@
         android:background="@drawable/rounded_edittext_with_border"
         android:layout_margin="20dp" />
 
-    <!-- RecyclerView for Watchlist -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewWatchlist"
         android:layout_width="match_parent"

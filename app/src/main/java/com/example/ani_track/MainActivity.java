@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.content.SharedPreferences;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
+        checkLoginStatus();
 
         // Initialize Firebase Realtime Database
         databaseReference = FirebaseDatabase.getInstance().getReference("people");
@@ -76,7 +78,28 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void saveLoginStatus(String username, boolean isLoggedIn) {
+        SharedPreferences sharedPreferences = getSharedPreferences("user_pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("username", username); // Save the username
+        editor.putBoolean("isLoggedIn", isLoggedIn); // Save login status
+        editor.apply();
+    }
+    public void checkLoginStatus() {
+        SharedPreferences sharedPreferences = getSharedPreferences("user_pref", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
 
+        if (isLoggedIn) {
+            // Retrieve the username from SharedPreferences
+            String username = sharedPreferences.getString("username", null);
+
+            // Create an Intent to navigate to MainActivity and pass the username
+            Intent intent = new Intent(MainActivity.this, AnimeActivity.class);
+            intent.putExtra("username", username); // Pass the username as an extra
+            startActivity(intent);
+            finish(); // Finish the SignInActivity to prevent going back to it
+        }
+    }
     private void authenticateUser(String username, String password) {
         databaseReference.child(username).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -87,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                     if (storedPassword != null && storedPassword.equals(password)) {
                         // Login successful
                         Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
-
+                        saveLoginStatus(username,true);
                         // Redirect to Anime Activity
                         Intent intent = new Intent(MainActivity.this, AnimeActivity.class);
                         intent.putExtra("username", username); // Pass the username to the next activity

@@ -1,6 +1,7 @@
 package com.example.ani_track;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.AlertDialog;
+import android.content.SharedPreferences;
 
 public class WatchlistActivity extends AppCompatActivity {
     private RecyclerView recyclerViewWatchlist;
@@ -55,6 +57,45 @@ public class WatchlistActivity extends AppCompatActivity {
         EditText searchBar = findViewById(R.id.searchBar);
         TextView tabAnime = findViewById(R.id.tabAnime);
         TextView tabPeople = findViewById(R.id.tabPeople);
+        TextView tabWatchlist = findViewById(R.id.tabWatchlist);
+        tabWatchlist.setTextColor(Color.WHITE); // Highlight color
+        tabWatchlist.setBackgroundResource(R.drawable.tab_highlight);
+        ImageView logoutIcon = findViewById(R.id.logoutIcon);
+
+        logoutIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an AlertDialog to confirm logout
+                AlertDialog.Builder builder = new AlertDialog.Builder(WatchlistActivity.this);
+                builder.setMessage("Are you sure you want to logout?")
+                        .setCancelable(false) // Prevent dismiss by tapping outside
+                        .setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                logout();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Dismiss the dialog and return to the current activity without doing anything
+                                dialog.dismiss();
+                            }
+                        });
+
+                // Create and show the dialog
+                AlertDialog alert = builder.create();
+                alert.show();
+
+                // Change the color of the buttons (Red for logout, White for cancel)
+                Button logoutButton = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+                logoutButton.setTextColor(Color.RED);
+
+                Button cancelButton = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+                cancelButton.setTextColor(Color.WHITE);
+            }
+        });
+
         searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int start, int count, int after) {
@@ -100,6 +141,17 @@ public class WatchlistActivity extends AppCompatActivity {
 
         // Fetch Data from Firebase
         fetchWatchlist(username);
+    }
+    public void logout() {
+        SharedPreferences sharedPreferences = getSharedPreferences("user_pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("isLoggedIn");
+        editor.apply();
+
+        Intent signInIntent = new Intent(WatchlistActivity.this, MainActivity.class);
+        signInIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(signInIntent);
+        finish();
     }
 
     private void fetchWatchlist(String username) {

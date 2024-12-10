@@ -1,10 +1,15 @@
 package com.example.ani_track;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +32,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 public class AnimeActivity extends AppCompatActivity {
 
@@ -34,7 +41,7 @@ public class AnimeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AnimeAdapter animeAdapter;
     private List<Anime> animeList;
-    private TextView tabPeople, tabWatchlist;
+    private TextView tabPeople, tabWatchlist,tabAnime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +53,45 @@ public class AnimeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewAnime);
         tabPeople = findViewById(R.id.tabPeople);
         tabWatchlist = findViewById(R.id.tabWatchlist);
+        tabAnime=findViewById(R.id.tabAnime);
+        tabAnime.setTextColor(Color.WHITE);
+        tabAnime.setBackgroundResource(R.drawable.tab_highlight);
+        ImageView logoutIcon = findViewById(R.id.logoutIcon);
+
+        logoutIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an AlertDialog to confirm logout
+                AlertDialog.Builder builder = new AlertDialog.Builder(AnimeActivity.this);
+                builder.setMessage("Are you sure you want to logout?")
+                        .setCancelable(false) // Prevent dismiss by tapping outside
+                        .setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                logout();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Dismiss the dialog and return to the current activity without doing anything
+                                dialog.dismiss();
+                            }
+                        });
+
+                // Create and show the dialog
+                AlertDialog alert = builder.create();
+                alert.show();
+
+                // Change the color of the buttons (Red for logout, White for cancel)
+                Button logoutButton = alert.getButton(DialogInterface.BUTTON_POSITIVE);
+                logoutButton.setTextColor(Color.RED);
+
+                Button cancelButton = alert.getButton(DialogInterface.BUTTON_NEGATIVE);
+                cancelButton.setTextColor(Color.WHITE);
+            }
+        });
+
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -96,6 +142,17 @@ public class AnimeActivity extends AppCompatActivity {
         });
     }
 
+    public void logout() {
+        SharedPreferences sharedPreferences = getSharedPreferences("user_pref", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.remove("isLoggedIn");
+        editor.apply();
+
+        Intent signInIntent = new Intent(AnimeActivity.this, MainActivity.class);
+        signInIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(signInIntent);
+        finish();
+    }
     private void fetchAnimeData(String query) {
         // Set URL based on the search query
         String url;
