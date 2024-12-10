@@ -1,10 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme -->
     <style name="Base.Theme.Anitrack" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
+        <!-- Customize your light theme here -->
+        <!-- Uncomment and customize as needed -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="navBarBackgroundColor">@color/nav_bar_light_color</item>
     </style>
 
-    <style name="Theme.Anitrack" parent="Base.Theme.Anitrack" />
+    <style name="Theme.Anitrack" parent="Base.Theme.Anitrack">
+        <item name="materialButtonStyle">@style/Widget.AppCompat.Button</item> <!-- Use AppCompat style -->
+    </style>
 </resources>

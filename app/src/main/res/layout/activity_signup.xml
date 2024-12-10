@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/l"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="#121212">
 
     <!-- App Logo -->
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/imageView"
+        android:layout_width="130dp"
+        android:layout_height="119dp"
         android:layout_marginBottom="20dp"
         android:contentDescription="App Logo"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@drawable/ani_track" />
 
     <!-- Username Input -->
     <EditText
@@ -24,7 +27,9 @@
         android:background="@drawable/rounded_edittext"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#BDBDBD" /> <!-- Lighter hint text color -->
 
     <!-- Email Input -->
     <EditText
@@ -35,7 +40,9 @@
         android:background="@drawable/rounded_edittext"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#BDBDBD" /> <!-- Lighter hint text color -->
 
     <!-- Password Input -->
     <EditText
@@ -46,7 +53,9 @@
         android:background="@drawable/rounded_edittext"
         android:hint="Password"
         android:inputType="textPassword"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#BDBDBD" /> <!-- Lighter hint text color -->
 
     <!-- Sign Up Button -->
     <Button
@@ -54,10 +63,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/gradient_button"
+        android:backgroundTint="@null"
         android:padding="12dp"
+        android:stateListAnimator="@null"
         android:text="Sign Up"
-        android:textColor="@android:color/white"
-        android:textStyle="bold" />
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:theme="@null" />
 
     <!-- Already Have Account -->
     <LinearLayout
@@ -80,7 +92,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
-            android:textColor="#87CEEB"
+            android:textColor="#007BB5"
             android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

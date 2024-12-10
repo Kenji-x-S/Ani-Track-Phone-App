@@ -46,7 +46,7 @@ public class WatchlistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_watchlist);
-        getWindow().setStatusBarColor(Color.parseColor("#333333"));
+        getWindow().setStatusBarColor(Color.parseColor("#121212"));
 
         Log.d("WatchlistActivity", "onCreate started");
 

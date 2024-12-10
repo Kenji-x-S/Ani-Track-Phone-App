@@ -42,7 +42,7 @@ public class PeopleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people);
-        getWindow().setStatusBarColor(Color.parseColor("#333333"));
+        getWindow().setStatusBarColor(Color.parseColor("#121212"));
 
         recyclerViewPeople = findViewById(R.id.recyclerViewPeople);
         searchBarPeople = findViewById(R.id.searchBarPeople);
@@ -185,7 +185,7 @@ public class PeopleActivity extends AppCompatActivity {
         Log.d("mapToUser", "userData type: " + userData.getClass().getName());
         if (userData == null) return null;
 
-        String profileImageUrl = "https://cdn.myanimelist.net/images/anime/1465/142014.jpg";  // Default image URL
+        String profileImageUrl = "https://cdn.discordapp.com/attachments/852883226817069086/1316108276353732721/ani-track.png?ex=6759d8d9&is=67588759&hm=6a86f1dd852bbf0794df6bcd3db50d5beb88fa6f556ec0919215be47af7be91f&";  // Default image URL
         String email = null;
 
         // Check if the data is a Map (single user)

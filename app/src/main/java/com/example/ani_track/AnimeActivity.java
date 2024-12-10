@@ -47,7 +47,7 @@ public class AnimeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animetab);
-        getWindow().setStatusBarColor(Color.parseColor("#333333"));
+        getWindow().setStatusBarColor(Color.parseColor("#121212"));
         // Initializing UI components
         searchAnime = findViewById(R.id.searchBar);
         recyclerView = findViewById(R.id.recyclerViewAnime);
@@ -62,7 +62,7 @@ public class AnimeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create an AlertDialog to confirm logout
-                AlertDialog.Builder builder = new AlertDialog.Builder(AnimeActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(AnimeActivity.this, R.style.CustomAlertDialogTheme);
                 builder.setMessage("Are you sure you want to logout?")
                         .setCancelable(false) // Prevent dismiss by tapping outside
                         .setPositiveButton("Logout", new DialogInterface.OnClickListener() {

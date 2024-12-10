@@ -39,7 +39,7 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-
+        getWindow().setStatusBarColor(Color.parseColor("#121212"));
         // Initialize views
         tvProfileEmail = findViewById(R.id.tvProfileEmail);
         tvWatchlistTitle = findViewById(R.id.tvWatchlistTitle);

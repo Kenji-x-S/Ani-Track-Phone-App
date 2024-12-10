@@ -3,50 +3,54 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:elevation="4dp"
-    android:background="@drawable/navigation_bar_background">
+    android:background="@drawable/navigation_bar_background"
+    android:backgroundTint="#000000"
+    android:elevation="4dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <ImageView
             android:id="@+id/animeImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/ani_track" />
 
         <TextView
             android:id="@+id/animeTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Anime Title"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/animeStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:text="Anime description"
-            android:textSize="14sp"
-            android:layout_marginTop="4dp" />
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/addToWatchlistButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Add to Watchlist"
-            android:layout_marginTop="8dp" />
+            android:background="@drawable/gradient_button"/>
 
         <TextView
             android:id="@+id/watchlistStatusText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Already in Watchlist"
-            android:textColor="@android:color/black"
+            android:textColor="@color/white"
             android:visibility="gone" />
 
     </LinearLayout>

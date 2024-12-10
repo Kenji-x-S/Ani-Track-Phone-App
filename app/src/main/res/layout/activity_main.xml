@@ -4,18 +4,17 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="#121212">
 
-    <!-- App Logo -->
     <ImageView
-        android:id="@+id/logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/imageView"
+        android:layout_width="130dp"
+        android:layout_height="119dp"
         android:layout_marginBottom="20dp"
         android:contentDescription="App Logo"
-        android:src="@drawable/ic_launcher_foreground" />
+        android:src="@drawable/ani_track" />
 
-    <!-- Email Input -->
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
@@ -24,9 +23,10 @@
         android:background="@drawable/rounded_edittext"
         android:hint="Username"
         android:inputType="textEmailAddress"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#BDBDBD" /> <!-- Lighter hint text color -->
 
-    <!-- Password Input -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
@@ -35,9 +35,10 @@
         android:background="@drawable/rounded_edittext"
         android:hint="Password"
         android:inputType="textPassword"
-        android:padding="12dp" />
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textColorHint="#BDBDBD" /> <!-- Lighter hint text color -->
 
-    <!-- Login Button -->
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
@@ -45,10 +46,8 @@
         android:background="@drawable/gradient_button"
         android:padding="12dp"
         android:text="Login"
-        android:textColor="@android:color/white"
+        android:textColor="#000000"
         android:textStyle="bold" />
-
-    <!-- Forgot Password -->
 
     <!-- Sign Up -->
     <TextView
@@ -58,7 +57,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:text="Sign Up"
-        android:textColor="#87CEEB"
+        android:textColor="#007BB5"
         android:textStyle="bold" />
 
 </LinearLayout>

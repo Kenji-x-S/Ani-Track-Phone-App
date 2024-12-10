@@ -31,7 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        getWindow().setStatusBarColor(Color.parseColor("#FFFFFF"));
+        getWindow().setStatusBarColor(Color.parseColor("#121212"));
 
 
         // Initialize Firebase Database
